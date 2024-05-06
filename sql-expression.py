@@ -5,7 +5,7 @@ from sqlalchemy import (
 # executing the instructions from our localhost "chinook" db
 db = create_engine("postgresql:///chinook")
 
-meta = MetaData(db)
+meta = MetaData()
 
 # create variable for "Artist" table
 artist_table = Table(
@@ -40,10 +40,10 @@ track_table = Table(
 with db.connect() as connection:
 
     # Query 1 - select all records from the "Artist" table
-    # select_query = artist_table.select()
+    #select_query = artist_table.select()
 
     # Query 2 - select only the "Name" column from the "Artist" table
-    # select_query = artist_table.select().with_only_columns([artist_table.c.Name])
+    # select_query = artist_table.select().with_only_columns(artist_table.c.Name)
 
     # Query 3 - select only 'Queen' from the "Artist" table
     # select_query = artist_table.select().where(artist_table.c.Name == "Queen")
